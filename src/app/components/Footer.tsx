@@ -7,7 +7,7 @@ export default function Footer() {
   const { language } = useContext(LanguageContext);
 
   return (
-    <footer className="w-full py-4 text-center text-sm text-gray-500">
+    <footer className="w-full py-4 text-center text-sm text-[var(--muted)]">
       {language === "EN" ? (
         <>
           © {new Date().getFullYear()} Jonathan Truong. Website source code licensed under MIT. Whitepapers licensed under CC BY-SA 4.0.

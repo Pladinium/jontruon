@@ -24,16 +24,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-    useEffect(() => {
+  useEffect(() => {
     const root = document.documentElement;
     if (darkMode) {
-        root.style.setProperty("--background", "#141414"); // dark background
-        root.style.setProperty("--foreground", "#ebebeb"); // light text
+      root.style.setProperty("--background", "#1f1f1f")
+      root.style.setProperty("--foreground", "#ebebeb")
     } else {
-        root.style.setProperty("--background", "#ebebeb"); // light background
-        root.style.setProperty("--foreground", "#1F1F1F"); // dark text
+      root.style.setProperty("--background", "#ebebeb")
+      root.style.setProperty("--foreground", "#1f1f1f")
     }
-    }, [darkMode]);
+
+
+    root.classList.toggle('dark', darkMode);
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
 
   return (

@@ -8,20 +8,39 @@ export default function HomePage() {
   const { darkMode } = useTheme();
 
   return (
-    <main className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl text-[var(--foreground)] font-bold mb-4">
-          {language === "EN" ? "— Jonathan Truong —" : "— Jonathan Truong —"}
+    <main className="flex flex-col">
+      <section
+        id="home"
+        className="flex flex-col items-center justify-center min-h-screen text-center px-4 gap-6">
+        <div className="w-40 h-40 rounded-full bg-gray-300 dark:bg-gray-700" />
+        {/* Example when photo available:
+        <Image
+          src="/profile.jpg"
+          width={160}
+          height={160}
+          alt="Jonathan Truong portrait"
+          className="rounded-full"
+         priority
+        />
+        */}
+
+        {/* 2️⃣  Name */}
+        <h1 className="text-4xl font-bold text-[var(--foreground)]">
+          — Jonathan&nbsp;Truong —
         </h1>
 
-        <p className="text-lg text-[var(--foreground)]">
+        {/* 3️⃣  Tagline */}
+        <p className="text-lg text-[var(--foreground)] max-w-prose">
           {language === "EN"
             ? "Pharmacology Graduate & Aspiring Entrepreneur in Pharmaceutical and Biopharmaceutical Industries"
             : "Je suis diplômé de l’Université McGill avec un baccalauréat en pharmacologie."}
         </p>
+      </section>
+        
 
-        <section className="mt-16 text-center">
-          <h2 className="text-3xl font-bold mb-8">What I am Learning</h2>
+        <section id="skills" className="text-center px-36">
+          <div className="w-full max-w-6xl mx-auto px-6 text-center"></div>
+          <h2 className="text-3xl font-bold mb-12">What I am Learning</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             <div className="flex flex-col items-center">
               <Image
@@ -32,24 +51,21 @@ export default function HomePage() {
                 className="mb-4"
               />
               <h3 className="text-xl font-semibold mb-2">Regulatory Compliance</h3>
-              <p className="text-gray-600 dark:text-gray-500 text-center">
+              <p className="text-[var(--muted)] text-center">
                 GMP, GLP, GDP, GAMP 5, ICH, Health Canada, FDA
               </p>
             </div>
 
             <div className="flex flex-col items-center">
               <Image
-                src={darkMode
-                     ? "/qc-icon-light.svg" 
-                     : "/qc-icon-dark.svg"
-                  }
+                src={darkMode ? "/qc-icon-dark.svg" : "/qc-icon-light.svg"}
                 alt="Lab Operations Icon"
                 width={128}
                 height={128}
                 className="mb-4"
               />
               <h3 className="text-xl font-semibold mb-2">Quality Control Operations</h3>
-              <p className="text-gray-600 dark:text-gray-500 text-center">
+              <p className="text-[var(--muted)] text-center">
                 SOPs, training, audits, equipment tracking
               </p>
             </div>
@@ -63,7 +79,7 @@ export default function HomePage() {
                 className="mb-4"
               />
               <h3 className="text-xl font-semibold mb-2">Quality Systems</h3>
-              <p className="text-gray-600 dark:text-gray-500 text-center">
+              <p className="text-[var(--muted)] text-center">
                 21 CFR Part 11, CSV, LIMS, ERPNext
               </p>
             </div>
@@ -77,7 +93,7 @@ export default function HomePage() {
                 className="mb-4"
               />
               <h3 className="text-xl font-semibold mb-2">Supply Chain</h3>
-              <p className="text-gray-600 dark:text-gray-500 text-center">
+              <p className="text-[var(--muted)] text-center">
                 Incoterms, vendor qualification, serialization
               </p>
             </div>
@@ -91,14 +107,12 @@ export default function HomePage() {
                 className="mb-4"
               />
               <h3 className="text-xl font-semibold mb-2">Business & Strategy</h3>
-              <p className="text-gray-600 dark:text-gray-500 text-center">
+              <p className="text-[var(--muted)] text-center">
                 Startup ops, budgeting, investor readiness
               </p>
             </div>
-
           </div>
         </section>
-      </div>
     </main>
   );
 }
