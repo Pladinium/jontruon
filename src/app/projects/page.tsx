@@ -1,11 +1,9 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { useLanguage } from "../components/LanguageContext";
-import { useTheme } from "../components/ThemeContext";
 
 export default function ProjectsPage() {
   const { language } = useLanguage();
-  const { darkMode } = useTheme();
 
   const [loaded, setLoaded] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);

@@ -1,12 +1,10 @@
 "use client";
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "../components/LanguageContext";
-import { useTheme } from "../components/ThemeContext";
 
 export default function ResumePage() {
   const { language } = useLanguage();
-  const { darkMode } = useTheme();
   const [loaded, setLoaded] = useState(false);
 
   const pages = language === "EN"
