@@ -6,10 +6,7 @@ type ThemeContextType = {
   setDarkMode: (value: boolean) => void;
 };
 
-export const ThemeContext = createContext<ThemeContextType>({
-  darkMode: false,
-  setDarkMode: () => {},
-});
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,18 +24,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const root = document.documentElement;
     if (darkMode) {
-      root.style.setProperty("--background", "#1f1f1f")
-      root.style.setProperty("--foreground", "#ebebeb")
+      root.style.setProperty("--background", "#1f1f1f");
+      root.style.setProperty("--foreground", "#ebebeb");
     } else {
-      root.style.setProperty("--background", "#ebebeb")
-      root.style.setProperty("--foreground", "#1f1f1f")
+      root.style.setProperty("--background", "#ebebeb");
+      root.style.setProperty("--foreground", "#1f1f1f");
     }
 
-
-    root.classList.toggle('dark', darkMode);
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+    root.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
-
 
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
@@ -48,5 +43,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
 }

@@ -1,5 +1,6 @@
 import ThemeToggle from './ThemeToggle';
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 type NavbarProps = {
   language: string;
@@ -8,10 +9,11 @@ type NavbarProps = {
 
 export default function Navbar({language, setLanguage}:NavbarProps) {
   const navLabels = {
+    about: language === "EN" ? "About" : "À propos",
     home: language === "EN" ? "Home" : "Accueil",
     resume: language === "EN" ? "Resume" : "CV",
     projects: language === "EN" ? "Projects" : "Projets",
-    whitepapers: language === "EN" ? "Whitepapers" : "Livres blancs",
+    fieldnotes: language === "EN" ? "Fieldnotes" : "Livres blancs",
     contact: language === "EN" ? "Contact" : "Contacter",
   };
   const [show, setShow] = useState(true);
@@ -49,29 +51,34 @@ export default function Navbar({language, setLanguage}:NavbarProps) {
         <div className="flex items-center gap-4">
           <ul className="flex flex-col md:flex-row gap-4 md:space-x-4 text-lg font-bold text-center md:text-left">
             <li>
-              <a href="#home" className="hover:text-gray-400 transition-colors duration-250">
+              <Link href="/" className="hover:text-gray-400 transition-colors duration-250">
                 {navLabels.home}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#resume" className="hover:text-gray-400 transition-colors duration-250">
+              <Link href="/about" className="hover:text-gray-400 transition-colors duration-250">
+                {navLabels.about}
+              </Link>
+            </li>
+            <li>
+              <Link href="/resume" className="hover:text-gray-400 transition-colors duration-250">
                 {navLabels.resume}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#projects" className="hover:text-gray-400 transition-colors duration-250">
+              <Link href="/projects" className="hover:text-gray-400 transition-colors duration-250">
                 {navLabels.projects}
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#whitepapers" className="hover:text-gray-400 transition-colors duration-250">
-                {navLabels.whitepapers}
-              </a>
+              <Link href="/fieldnotes" className="hover:text-gray-400 transition-colors duration-250">
+                {navLabels.fieldnotes}
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-gray-400 transition-colors duration-250">
+              <Link href="/contact" className="hover:text-gray-400 transition-colors duration-250">
                 {navLabels.contact}
-              </a>
+              </Link>
             </li>
           </ul>
 

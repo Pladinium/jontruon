@@ -10,11 +10,11 @@ export default function Footer() {
     <footer className="w-full py-4 text-center text-sm text-[var(--muted)]">
       {language === "EN" ? (
         <>
-          © {new Date().getFullYear()} Jonathan Truong. Website source code licensed under MIT. Whitepapers licensed under CC BY-SA 4.0.
+          © {new Date().getFullYear()} Jonathan Truong. All rights reserved.
         </>
       ) : (
         <>
-          © {new Date().getFullYear()} Jonathan Truong. Code source du site sous licence MIT. Livres blancs sous licence CC BY-SA 4.0.
+          © {new Date().getFullYear()} Jonathan Truong. Tous droits réservés
         </>
       )}
     </footer>
