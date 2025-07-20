@@ -63,13 +63,19 @@ export default function HomePage() {
             href="/projects"
             className="px-4 py-2 rounded-2xl border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white transition"
           >
-            Projects
+            {language === "EN"
+              ? "Projects"
+              : "Projets"
+            }
           </a>
           <a
             href="/resources"
             className="px-4 py-2 rounded-2xl border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white transition"
           >
-            Resources
+            {language === "EN"
+              ? "Resources"
+              : "Ressources"
+            }
           </a>
         </div>
 
@@ -101,7 +107,12 @@ export default function HomePage() {
 
       <section id="skills" className="text-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48">
         <div className="w-full max-w-6xl mx-auto px-6 text-center"></div>
-        <h2 className="text-3xl font-bold mb-12">My Professional Interests</h2>
+        <h2 className="text-3xl font-bold mb-12">
+          {language === "EN"
+            ? "What I'm currently learning"
+            : "Ce que j'apprend actuellement"
+          }
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           <div className="flex flex-col items-center">
