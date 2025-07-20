@@ -23,6 +23,7 @@ export default function HomePage() {
         ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
       `}
     >
+
       <section
         id="home"
         className="flex flex-col items-center justify-center min-h-screen text-center px-4 gap-6">
@@ -38,24 +39,24 @@ export default function HomePage() {
         />
         */}
 
-        {/* 2️⃣  Name */}
+        {/* Name */}
         <h1 className="text-4xl font-bold text-[var(--foreground)]">
            Jonathan&nbsp;Truong 
         </h1>
 
-        {/* 3️⃣  Tagline */}
+        {/* Tagline */}
         <p className="text-lg text-[var(--foreground)] max-w-prose">
           {language === "EN"
-            ? "Pharmacology Graduate & Aspiring Entrepreneur in the Pharmaceutical and Biopharmaceutical Industries"
-            : "Je suis diplômé de l’Université McGill avec un baccalauréat en pharmacologie."}
+            ? "Pharmacology Graduate from McGill & Aspiring Entrepreneur in the Pharmaceutical and Biopharmaceutical Industries"
+            : "Diplômé en pharmacologie de McGill et entrepreneur en devenir dans les industries pharmaceutique et biopharmaceutique"}
         </p>
 
         <div className="flex gap-4 mt-4">
           <a
             href="/resume"
-            className="px-4 py-2 rounded-2xl border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white transition"
+            className="px-4 py-2 rounded-2xl border border-[var(--foreground)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition"
           >
-            View Resume
+            Resume
           </a>
           <a
             href="/projects"
@@ -64,29 +65,40 @@ export default function HomePage() {
             Projects
           </a>
           <a
-            href="/fieldnotes"
+            href="/resources"
             className="px-4 py-2 rounded-2xl border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white transition"
           >
-            Fieldnotes
+            Resources
           </a>
         </div>
+
+        <div className="mt-6 text-3xl text-[var(--foreground)] opacity-90 animate-smooth-bounce">
+          ↓
+        </div>
+
       </section>
 
-      <div className="w-200 h-0.25 bg-[var(--foreground)] mx-auto my-12" />
+      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-12" />
 
       <section id="about" className="text-center px-8 max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-4">About Me</h2>
-        <p className="text-[var(--foreground)] text-lg">
-          I’m passionate about bridging quality systems, regulatory compliance,
-          and scalable manufacturing. I thrive at the intersection of science,
-          operations, and business — helping turn complex requirements into
-          practical solutions.
+        <h2 className="text-3xl font-bold mb-4">
+          {language === "EN"
+            ? "About Me"
+            : "À propos"
+          }
+        </h2>
+        <p className="text-justify text-[var(--foreground)] text-lg">
+          {language === "EN"
+            ? "I'm interested in anything drug-related, especially pharmaceutical and biopharmaceutical manufacturing. Research suggests that biologics are the future of therapeutics due to better clinical outcomes. I plan to become an innovator in biopharmaceutical manufacturing, making these novel drugs more accessible. I'm also highly interested in business and entrepreneurship. My greatest ambition is to build a company focused on biopharmaceutical manufacturing."
+            : "Je m'intéresse à tout ce qui touche aux médicaments, en particulier à la fabrication pharmaceutique et biopharmaceutique. Les recherches suggèrent que les biomédicaments représentent l’avenir des traitements en raison de leurs meilleurs résultats cliniques. Je prévois de devenir un innovateur dans la fabrication biopharmaceutique afin de rendre ces médicaments novateurs plus accessibles. Je suis également très intéressé par le monde des affaires et l’entrepreneuriat. Ma plus grande ambition est de fonder une entreprise spécialisée dans la fabrication biopharmaceutique."
+          }
+          
         </p>
       </section>
 
-      <div className="w-200 h-0.25 bg-[var(--foreground)] mx-auto my-12" />
+      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-12" />
 
-      <section id="skills" className="text-center px-48">
+      <section id="skills" className="text-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48">
         <div className="w-full max-w-6xl mx-auto px-6 text-center"></div>
         <h2 className="text-3xl font-bold mb-12">My Professional Interests</h2>
 
@@ -178,23 +190,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="w-200 h-0.25 bg-[var(--foreground)] mx-auto my-12" />
+      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-12" />
 
       <section
         id="contact"
-        className="text-center px-8 max-w-2xl mx-auto mb-20"
+        className="text-center px-8 max-w-2xl mx-auto"
       >
         <h2 className="text-3xl font-bold mb-4">Any Question?</h2>
         <p className="text-[var(--foreground)] mb-4">
           Feel free to reach out for any question, feedback, inconsistency, and typo! Every e-mail is welcome, and I will do my best to reply.
         </p>
         <a
-          href="mailto:jonathan.truong@example.com"
-          className="px-4 py-2 rounded-2xl border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white transition"
+          href="mailto:jon.truong@gmail.com"
+          className="mt-20 px-4 py-2 rounded-2xl border border-[var(--foreground)] text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white transition"
         >
           Email Me
         </a>
       </section>
+
+      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-12" />
 
     </main>
   );

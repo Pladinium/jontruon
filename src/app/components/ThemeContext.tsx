@@ -26,9 +26,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (darkMode) {
       root.style.setProperty("--background", "#1f1f1f");
       root.style.setProperty("--foreground", "#ebebeb");
+      root.style.setProperty("--color-primary", "#16007A");
+      root.style.setProperty("--color-primary-hover", "#3a2ecc");
     } else {
       root.style.setProperty("--background", "#ebebeb");
       root.style.setProperty("--foreground", "#1f1f1f");
+      root.style.setProperty("--color-primary", "#16007A");
+      root.style.setProperty("--color-primary-hover", "#2f1eb2");
     }
 
     root.classList.toggle("dark", darkMode);

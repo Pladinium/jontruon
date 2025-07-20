@@ -1,12 +1,6 @@
-"use client";
-import { useState } from "react";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-
-import { LanguageContext } from "./components/LanguageContext";
-import { ThemeProvider } from "./components/ThemeContext";
+import ClientLayout from "./components/ClientLayoutWrapper";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -14,26 +8,34 @@ const roboto = Roboto({
   weight: ["400", "700"],
 });
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const [language, setLanguage] = useState("EN");
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={language === "EN" ? "en" : "fr"}>
-      <body
-        className={`${roboto.variable} antialiased`}
-        style={{
-          background: "var(--background)",
-          color: "var(--foreground)",
-          fontFamily: "var(--font-roboto), sans-serif",
-        }}
-      >
-        <LanguageContext.Provider value={{ language, setLanguage }}>
-          <ThemeProvider> {/* ✅ wrap whole app in ThemeProvider */}
-            <Navbar language={language} setLanguage={setLanguage} />
-            {children}
-            <Footer />
-          </ThemeProvider>
-        </LanguageContext.Provider>
+    <html lang="EN">
+      <head>
+        {/* preload dark mode to avoid flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function () {
+              const saved = localStorage.getItem("darkMode");
+              const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+              const root = document.documentElement;
+              if (saved === "true" || (saved === null && prefersDark)) {
+                root.classList.add("dark");
+                root.style.setProperty("--background", "#1f1f1f");
+                root.style.setProperty("--foreground", "#ebebeb");
+              } else {
+                root.classList.remove("dark");
+                root.style.setProperty("--background", "#ebebeb");
+                root.style.setProperty("--foreground", "#1f1f1f");
+              }
+              root.style.setProperty("--color-primary", "#16007A");
+              root.style.setProperty("--color-primary-hover", "#3a2ecc");
+            })();`,
+          }}
+        />
+      </head>
+      <body className={`${roboto.variable} antialiased`}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
