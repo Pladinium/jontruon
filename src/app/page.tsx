@@ -56,7 +56,10 @@ export default function HomePage() {
             href="/resume"
             className="px-4 py-2 rounded-2xl border border-[var(--foreground)] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition"
           >
-            Resume
+            {language === "EN"
+              ? "Resume"
+              : "CV"
+            }
           </a>
           <a
             href="/projects"
