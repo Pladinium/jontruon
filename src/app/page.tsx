@@ -39,12 +39,10 @@ export default function HomePage() {
         />
         */}
 
-        {/* Name */}
         <h1 className="text-4xl font-bold text-[var(--foreground)]">
            Jonathan&nbsp;Truong 
         </h1>
 
-        {/* Tagline */}
         <p className="text-lg text-[var(--foreground)] max-w-prose">
           {language === "EN"
             ? "Pharmacology Graduate from McGill & Aspiring Entrepreneur in the Pharmaceutical and Biopharmaceutical Industries"
@@ -105,7 +103,6 @@ export default function HomePage() {
         <div className="w-full max-w-6xl mx-auto px-6 text-center"></div>
         <h2 className="text-3xl font-bold mb-12">My Professional Interests</h2>
 
-        {/* Top 3 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           <div className="flex flex-col items-center">
             <Image
