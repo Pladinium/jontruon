@@ -15,7 +15,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
     home: language === "EN" ? "Home" : "Accueil",
     resume: language === "EN" ? "Resume" : "CV",
     projects: language === "EN" ? "Projects" : "Projets",
-    fieldnotes: language === "EN" ? "Fieldnotes" : "Livres blancs",
+    resources: language === "EN" ? "Resources" : "Ressources",
     contact: language === "EN" ? "Contact" : "Contacter",
   };
 
@@ -44,12 +44,26 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
 
   const navLinks = (
     <>
-      <li><Link href="/">{navLabels.home}</Link></li>
-      <li><Link href="/about">{navLabels.about}</Link></li>
-      <li><Link href="/resume">{navLabels.resume}</Link></li>
-      <li><Link href="/projects">{navLabels.projects}</Link></li>
-      <li><Link href="/fieldnotes">{navLabels.fieldnotes}</Link></li>
-      <li><Link href="/contact">{navLabels.contact}</Link></li>
+      <li><Link href="/" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
+          {navLabels.home}
+        </Link>
+      </li>
+          <li><Link href="/about" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
+          {navLabels.about}
+        </Link>
+      </li>
+          <li><Link href="/resume" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
+          {navLabels.resume}
+        </Link>
+      </li>
+          <li><Link href="/projects" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
+          {navLabels.projects}
+        </Link>
+      </li>
+          <li><Link href="/resources" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
+          {navLabels.resources}
+        </Link>
+      </li>
     </>
   );
 
@@ -59,22 +73,22 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
     }`}>
       <div className="flex items-center justify-between px-6 md:px-8 py-4 md:py-8 border-b bg-gradient-to-t from-black to-[#3d3d3d] rounded-lg shadow-2xl">
 
-        {/* Brand */}
-        <Link href="/" className="text-2xl font-bold hover:opacity-80 transition-opacity">
+        <Link
+          href="/"
+          className="text-2xl font-bold touch-active-bg rounded px-2 py-1 transition-colors duration-150 inline-block"
+        >
           Jonathan Truong
         </Link>
 
-        {/* Desktop menu */}
+
         <div
-         className="hidden md:flex items-center gap-6">
-          <ul className="flex flex-row gap-6 text-lg font-bold">
+         className="hidden md:flex items-center gap-6 ">
+          <ul className="flex flex-row gap-6 text-lg font-bold touch-active-bg transition-colors duration-150">
             {navLinks}
           </ul>
 
-          {/* Divider */}
           <div className="h-6 w-[2px] bg-gray-400 opacity-75" />
 
-          {/* Theme + Lang */}
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <button
@@ -86,8 +100,6 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
           </div>
         </div>
 
-
-        {/* Mobile hamburger */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden text-white"
@@ -96,13 +108,12 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
         </button>
       </div>
 
-      {/* Mobile menu dropdown */}
       <div
         className={`md:hidden px-6 bg-gradient-to-t from-black to-[#3d3d3d] rounded-b-lg shadow-2xl text-lg font-bold overflow-hidden transform transition-all duration-500 ease-out
           ${isMenuOpen ? "max-h-[500px] opacity-100 translate-y-0 py-4 space-y-2" : "max-h-0 opacity-0 -translate-y-4 py-0"}
         `}
       >
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-2 mobile-active-bg transition-colors duration-100">
           {navLinks}
         </ul>
         <div className="flex items-center justify-between pt-4">

@@ -58,6 +58,17 @@ const timeline = [
     ],
   },
   {
+    id: "Nov-2024",
+    label: "November 2024",
+    projects: [
+      {
+        title: "",
+        description:
+          "",
+      },
+    ],
+  },
+  {
     id: "Sep-2024",
     label: "September 2024",
     projects: [

@@ -1,3 +1,4 @@
+"use client";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "./components/ClientLayoutWrapper";
@@ -21,15 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               const root = document.documentElement;
               if (saved === "true" || (saved === null && prefersDark)) {
                 root.classList.add("dark");
-                root.style.setProperty("--background", "#1f1f1f");
-                root.style.setProperty("--foreground", "#ebebeb");
               } else {
                 root.classList.remove("dark");
-                root.style.setProperty("--background", "#ebebeb");
-                root.style.setProperty("--foreground", "#1f1f1f");
               }
-              root.style.setProperty("--color-primary", "#16007A");
-              root.style.setProperty("--color-primary-hover", "#3a2ecc");
             })();`,
           }}
         />

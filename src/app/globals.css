@@ -46,3 +46,22 @@ body {
 .animate-smooth-bounce {
   animation: smooth-bounce 1.6s ease-in-out infinite;
 }
+
+
+@media (pointer: coarse) {
+  .touch-active-bg:active {
+    background-color: var(--hover-bg, #e5e7eb);
+  }
+}
+
+@media (pointer: fine) {
+  .navlink-feedback:hover {
+    color: #999999;
+  }
+
+  .navlink-feedback:active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
