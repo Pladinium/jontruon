@@ -11,9 +11,8 @@ const roboto = Roboto({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="EN">
+    <html lang="EN" suppressHydrationWarning>
       <head>
-        {/* preload dark mode to avoid flash */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function () {
@@ -29,7 +28,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={`${roboto.variable} antialiased`}>
+        <body
+          className={`${roboto.variable}
+            antialiased
+            bg-[var(--background)] text-[var(--foreground)]
+            transition-colors duration-500 will-change-[background-color,color]`}
+        >
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

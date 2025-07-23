@@ -44,7 +44,7 @@ return (
         {language === "EN" ? "Download PDF" : "Télécharger PDF"}
       </a>
 
-      <div className="w-200 h-0.25 bg-[var(--foreground)] mx-auto my-12" />
+      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-6" />
 
       {pages.map((src, idx) => (
         <div
@@ -61,7 +61,7 @@ return (
         </div>
       ))}
 
-      <div className="w-200 h-0.25 bg-[var(--foreground)] mx-auto my-12" />
+      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-6" />
 
       <section className="w-full max-w-4xl mb-8">
         <h2 className="text-2xl text-center font-semibold mb-2">
@@ -75,7 +75,6 @@ return (
           <li>Next.js, React, Tailwind CSS</li>
           <li>Javascript/Typescript</li>
           <li>Figma Design</li>
-          {/* Add more as you like */}
         </ul>
 
         <h2 className="text-2xl text-center font-semibold mt-6 mb-2">
@@ -84,7 +83,6 @@ return (
         <ul className="list-disc list-inside text-[var(--foreground)]">
           <li>National Lifeguard (Pool) — Lifesaving Society (Expires in July 2026)</li>
           <li>Standard First Aid & CPR-C/AED — Lifesaving Society (Expires in July 2027)</li>
-        {/* Add expiry dates if helpful */}
         </ul>
       </section>
 

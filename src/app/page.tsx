@@ -10,11 +10,8 @@ export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
+  useEffect(() => {setLoaded(true);}, []);
 
-  
   const { language } = useLanguage();
   const { darkMode } = useTheme();
 
@@ -22,7 +19,7 @@ export default function HomePage() {
     <main 
       className={`flex flex-col items-center justify-center min-h-screen
         bg-[var(--background)] text-[var(--foreground)]
-        transition-all duration-700 ease-out will-change-transform
+        transition-colors duration-500 ease-out will-change-[background-color,color]
         ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
       `}
     >
@@ -120,7 +117,7 @@ export default function HomePage() {
             <Copy size={12} />
             {language === "EN" 
               ? (copied ? "Copied!" : "Copy Email") 
-              : (copied ? "Copié !" : "Copier l’adresse") }
+              : (copied ? "Copié !" : "Copier l'adresse") }
           </button>
         </div>
 
@@ -151,21 +148,18 @@ export default function HomePage() {
       <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-1" />
 
       <section id="about" className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-        {/* Centered Title */}
         <h2 className="text-3xl font-bold text-center mb-12">
           {language === "EN" ? "About Me" : "À propos"}
         </h2>
 
-        {/* Two-column layout: Image + Text */}
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
-          {/* Image */}
           <div className="flex-shrink-0">
             <Image
               src="/about-picture.jpg"
               alt="Lab"
               width={600}
               height={400}
-              className="rounded-xl shadow-md"
+              className="rounded-xl shadow-2xl"
             />
             <p className="text-sm italic text-[var(--muted)] text-center mt-2">
               {language === "EN"
@@ -174,17 +168,16 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Text */}
           <div className="text-[var(--foreground)] max-w-2xl space-y-4 font-semibold text-lg text-center lg:text-justify mx-auto">
             <p>
               {language === "EN"
                 ? "I'm interested in anything drug-related, especially pharmaceutical and biopharmaceutical manufacturing. Research suggests that biologics are the future of therapeutics due to better clinical outcomes."
-                : "Je m'intéresse à tout ce qui touche aux médicaments, en particulier à la fabrication pharmaceutique et biopharmaceutique. Les recherches suggèrent que les biomédicaments représentent l’avenir des traitements en raison de meilleurs résultats cliniques."}
+                : "Je m'intéresse à tout ce qui touche aux médicaments, en particulier à la fabrication pharmaceutique et biopharmaceutique. Les recherches suggèrent que les biomédicaments représentent l'avenir des traitements en raison de meilleurs résultats cliniques."}
             </p>
             <p>
               {language === "EN"
                 ? "I'm also highly interested in business and entrepreneurship. My greatest ambition is to build a company that innovates on biopharmaceutical manufacturing for better drug accessibility for the public."
-                : "Je suis également intéressé par les affaires et l’entrepreneuriat. Ma plus grande ambition est de fonder une entreprise qui innove dans la fabrication biopharmaceutique afin de rendre les médicaments plus accessibles au public."}
+                : "Je suis également intéressé par les affaires et l'entrepreneuriat. Ma plus grande ambition est de fonder une entreprise qui innove dans la fabrication biopharmaceutique afin de rendre les médicaments plus accessibles au public."}
             </p>
             <p>
               {language === "EN"
@@ -300,7 +293,7 @@ export default function HomePage() {
             <p className="text-[var(--muted)] text-center font-semibold">
               {language === "EN"
               ? "Scale-up processes, batch documentation, facility layout, tech transfer"
-              : "Mise à l’échelle, documentation des lots, aménagement des installations, transfert technologique"
+              : "Mise à l'échelle, documentation des lots, aménagement des installations, transfert technologique"
               }
               
             </p>
@@ -362,7 +355,7 @@ export default function HomePage() {
               <Copy size={12} />
               {language === "EN" 
                 ? (copied ? "Copied!" : "Copy Email") 
-                : (copied ? "Copié !" : "Copier l’adresse") }
+                : (copied ? "Copié !" : "Copier l'adresse") }
             </button>
           </div>
         </motion.section>
