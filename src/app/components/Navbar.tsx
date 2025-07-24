@@ -99,7 +99,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
 
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white"
+          className="md:hidden text-[var(--foreground)]"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

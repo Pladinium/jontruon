@@ -17,8 +17,8 @@ export default function ResourcesPage() {
           loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
       >
-        <h1 className="text-center font-bold mb-6 text-4xl sm:text-4xl md:text-5xl">
-          <span className="sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-b sm:from-[var(--foreground)] sm:to-[var(--muted)] text-[var(--foreground)]">
+        <h1 className="text-center font-bold mb-6 text-5xl sm:text-4xl md:text-5xl">
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-[var(--foreground)] to-[var(--muted)]">
             {language === "EN" ? "Resources" : "Ressources"}
           </span>
         </h1>

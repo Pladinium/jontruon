@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "../components/LanguageContext";
+import { useTheme } from "../components/ThemeContext";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,6 +10,7 @@ export default function AboutPage() {
   const [loaded, setLoaded] = useState(false);
   const { language } = useLanguage();
   const [direction, setDirection] = useState(1);
+  const { darkMode } = useTheme();
 
   const reversedAircraftList = [
     {rank: 1, name: "Lockheed F-22A Raptor", image: "/f22a.webp", source: "By Rob Shenk from Great Falls, VA, USA - F-22 Raptor, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=6414481"},
@@ -52,18 +54,6 @@ export default function AboutPage() {
       }
     },
     {
-      name: "Ready or Not",
-      genre: {
-        EN: "Tactical First-Person Shooter",
-        FR: "FPS tactique"
-      },
-      image: "/ron.jpg",
-      reason: {
-        EN: "Tense close-quarters strategy where entering every room is suspenseful. Not for the faint-hearted.",
-        FR: "Des stratégies en milieux clos tendues où chaque pièce est un défi. À éviter si vous avez un cœur sensible."
-      }
-    },
-    {
       name: "Command and Conquer Generals Zero Hour",
       genre: {
         EN: "Real-Time Strategy",
@@ -88,18 +78,6 @@ export default function AboutPage() {
       }
     },
     {
-      name: "Tower Defense X (Roblox)",
-      genre: {
-        EN: "Tower Defense Strategy",
-        FR: "Stratégie de défense de tours"
-      },
-      image: "/tdx.jpg",
-      reason: {
-        EN: "Each tower is unique, and the game forces players to strategize, properly budget, optimize tower placement, and sell towers at the right moment.",
-        FR: "Chaque tour est unique, et le jeu oblige à réfléchir stratégiquement, gérer son budget, optimiser le placement des tours et les vendre au bon moment."
-      }
-    },
-    {
       name: "Project Zomboid",
       genre: {
         EN: "Isometric Survival",
@@ -121,18 +99,6 @@ export default function AboutPage() {
       reason: {
         EN: "Exploration, progression, and creative builds with surprising depth. My favourite mod is Calamity Mod.",
         FR: "Exploration, progression et constructions créatives avec une profondeur surprenante. Mon mod préféré est Calamity Mod."
-      }
-    },
-    {
-      name: "Minecraft",
-      genre: {
-        EN: "Sandbox Survival",
-        FR: "Survie bac à sable"
-      },
-      image: "/mc.webp",
-      reason: {
-        EN: "Endless creativity. My go-to for relaxed gameplay. My favourite mod by far is RLCraft.",
-        FR: "Créativité sans limites. Mon jeu de détente par excellence. Mon mod préféré est de loin RLCraft."
       }
     },
   ];
@@ -342,7 +308,9 @@ export default function AboutPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: idx * 0.1 }}
                       viewport={{ once: true }}
-                      className="rounded-xl overflow-hidden shadow-2xl bg-[var(--background)] transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
+                      className={`rounded-xl overflow-hidden bg-[var(--background)] transition-transform duration-300 hover:scale-110 hover:-translate-y-1"
+                      ${darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
+                      >
                       <div className="relative w-full aspect-[20/9]">
                         <Image
                           src={game.image}
@@ -374,8 +342,8 @@ export default function AboutPage() {
 
               <p>
                 {language === "EN"
-                  ? "I'm interested in fragrance chemistry, and I enjoy trying out new fragrances. My two only gripes are that this hobby is so expensive and that I'm allergic to more affordable fragrances. For these reasons, I wear fragrances sparingly."
-                  : "Je m'intéresse à la chimie des parfums et j'aime découvrir des nouvelles fragrances. Mon deux reproches, ce sont que ce passe-temps est vraiment coûteux et que je suis allergique aux parfums moins coûteux. Pour ces raisons, j'utilise rarement mes parfums."}
+                  ? "I'm interested in fragrance chemistry, and I enjoy trying out new fragrances. My two only gripes are that this hobby is very expensive and that I'm allergic to more affordable fragrances. For these reasons, I wear fragrances sparingly."
+                  : "Je m'intéresse à la chimie des parfums et j'aime découvrir des nouvelles fragrances. Mon deux reproches, ce sont que ce passe-temps est très coûteux et que je suis allergique aux parfums moins coûteux. Pour ces raisons, j'utilise rarement mes parfums."}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
@@ -386,8 +354,9 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
                     viewport={{ once: true }}
-                    className="rounded-xl overflow-hidden drop-shadow-2xl bg-[var(--background)]
-                              transition-transform duration-300 hover:scale-110 hover:-translate-y-1"
+                    className={`rounded-xl overflow-hidden drop-shadow-2xl bg-[var(--background)]
+                              transition-transform duration-300 hover:scale-110 hover:-translate-y-1
+                              ${darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
                   >
                     <div className="relative w-full aspect-[4/5] overflow-hidden rounded-t-xl">
                       <Image

@@ -6,6 +6,93 @@ import { useTheme } from "./components/ThemeContext";
 import { Copy } from "lucide-react";
 import { motion } from "framer-motion";
 
+const topics = [
+  {
+    title: {
+      EN: "Regulatory Compliance",
+      FR: "Conformité réglementaire",
+    },
+    description: {
+      EN: "GMP, GLP, GDocP, GAMP 5, ICH, Health Canada, FDA",
+      FR: "BPF, BPL, BPDoc, GAMP 5, ICH, conformité FDA et Santé Canada",
+    },
+    icon: {
+      dark: "/law-scale-dark.svg",
+      light: "/law-scale-light.svg",
+    },
+  },
+  {
+    title: {
+      EN: "Quality Control Operations",
+      FR: "Opérations de contrôle qualité",
+    },
+    description: {
+      EN: "SOP drafting, audit readiness, equipment qualification, QC laboratories, QA responsabilities",
+      FR: "Rédaction de SOP, préparation aux audits, qualification des équipements, laboratoires de CQ, responsabilités d'AQ",
+    },
+    icon: {
+      dark: "/qc-icon-dark.svg",
+      light: "/qc-icon-light.svg",
+    },
+  },
+  {
+    title: {
+      EN: "Quality & IT Systems",
+      FR: "Qualité & Systèmes informatiques",
+    },
+    description: {
+      EN: "21 CFR Part 11, Computer System Validation, LIMS (SENAITE), ERPNext integration, QMS, deviation tracking",
+      FR: "21 CFR Part 11, validation des systèmes, LIMS (SENAITE), intégration ERPNext, QMS, suivi des déviations",
+    },
+    icon: {
+      dark: "/server-icon-dark (2).svg",
+      light: "/server-icon-light (2).svg",
+    },
+  },
+  {
+    title: {
+      EN: "Entrepreneurship & Finance",
+      FR: "Entrepreneuriat & Finance",
+    },
+    description: {
+      EN: "Incoterms, startup structuring, vendor qualification, financial modeling",
+      FR: "Incoterms, structure de startup, qualification des fournisseurs, modélisation financière",
+    },
+    icon: {
+      dark: "/ef-icon-dark.svg",
+      light: "/ef-icon-light.svg",
+    },
+  },
+  {
+    title: {
+      EN: "Pharmaceutical Manufacturing",
+      FR: "Fabrication pharmaceutique",
+    },
+    description: {
+      EN: "Scale-up processes, batch documentation, facility layout, tech transfer",
+      FR: "Mise à l'échelle, documentation des lots, aménagement des installations, transfert technologique",
+    },
+    icon: {
+      dark: "/pm-icon-dark.svg",
+      light: "/pm-icon-light.svg",
+    },
+  },
+  {
+    title: {
+      EN: "Biopharmaceutical Engineering & Manufacturing",
+      FR: "Génie & Fabrication biopharmaceutiques",
+    },
+    description: {
+      EN: "Process development, formulation, bioreactors, upstream/downstream optimization",
+      FR: "Développement des procédés, formulation, bioréacteurs, optimisation amont/aval",
+    },
+    icon: {
+      dark: "/bio-icon-dark (2).svg",
+      light: "/bio-icon-light (2).svg",
+    },
+  },
+];
+
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -53,13 +140,13 @@ export default function HomePage() {
           </p>
 
           <div className="flex gap-4 mt-4">
-            <a href="/resume" className="px-4 py-2 rounded-2xl border border-[var(--foreground)] bg-[var(--color-primary)] font-semibold text-white hover:bg-[var(--color-primary-hover)] transition">
+            <a href="/resume" className="px-4 py-2 rounded-lg border border-[var(--foreground)] bg-[var(--background)] font-semibold text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition">
               {language === "EN" ? "Resume" : "CV"}
             </a>
-            <a href="/projects" className="px-4 py-2 rounded-2xl border border-[var(--foreground)] text-[var(--foreground)] font-semibold hover:bg-[var(--foreground)] hover:text-[var(--background)] transition">
+            <a href="/projects" className="px-4 py-2 rounded-lg border border-[var(--foreground)] text-[var(--foreground)] font-semibold hover:bg-[var(--foreground)] hover:text-[var(--background)] transition">
               {language === "EN" ? "Projects" : "Projets"}
             </a>
-            <a href="/resources" className="px-4 py-2 rounded-2xl border border-[var(--foreground)] text-[var(--foreground)] font-semibold hover:bg-[var(--foreground)] hover:text-[var(--background)] transition">
+            <a href="/resources" className="px-4 py-2 rounded-lg border border-[var(--foreground)] text-[var(--foreground)] font-semibold hover:bg-[var(--foreground)] hover:text-[var(--background)] transition">
               {language === "EN" ? "Resources" : "Ressources"}
             </a>
           </div>
@@ -112,22 +199,7 @@ export default function HomePage() {
                 <h2 className="text-3xl font-bold text-center mb-12"> {language === "EN" ? "A Bit About Me" : "Un peu à propos de moi"} </h2>
 
                 <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="/about-picture.jpg"
-                      alt="Lab"
-                      width={600}
-                      height={400}
-                      className="rounded-xl shadow-2xl"
-                    />
-                    <p className="text-sm italic text-[var(--muted)] text-center mt-2">
-                      {language === "EN"
-                        ? "This image was generated using AI and is used solely for illustrative purposes."
-                        : "Cette image a été générée par une IA et est utilisée uniquement à des fins illustratives."}
-                    </p>
-                  </div>
-
-                  <div className="text-[var(--foreground)] max-w-2xl space-y-4 font-[450] text-lg text-center lg:text-justify mx-auto">
+                  <div className="text-[var(--foreground)] max-w-2xl space-y-4 font-[450] text-lg text-center lg:text-left mx-auto">
                     <p>
                       {language === "EN"
                         ? "I'm interested in anything drug-related, especially pharmaceutical and biopharmaceutical manufacturing. Research suggests that biologics are the future of therapeutics due to better clinical outcomes."
@@ -169,115 +241,47 @@ export default function HomePage() {
                     : "Ce que j'apprend actuellement"
                   }
                 </h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                  <div className="flex flex-col items-center">
-                    <Image
-                      src={darkMode ? "/law-scale-light.svg" : "/law-scale-dark.svg"}
-                      alt="Regulatory Compliance Icon"
-                      width={160}
-                      height={160}
-                      className="mb-4"
-                    />
-                    <h3 className="text-xl font-bold mb-2">{language === "EN" ? "Regulatory Compliance" : "Conformité réglementaire"} </h3>
-                    <p className="text-[var(--muted)] text-center font-semibold">
-                      {language === "EN"
-                      ? "GMP, GLP, GDocP, GAMP 5, ICH, Health Canada, FDA"
-                      : "BPF, BPL, BPDoc, GAMP 5, ICH, conformité FDA et Santé Canada"
-                      }
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <Image
-                      src={darkMode ? "/qc-icon-dark.svg" : "/qc-icon-light.svg"}
-                      alt="Lab Operations Icon"
-                      width={160}
-                      height={160}
-                      className="mb-4"
-                    />
-                    <h3 className="text-xl font-bold mb-2">{language === "EN" ? "Quality Control Operations" : "Opérations de contrôle qualité"}</h3>
-                    <p className="text-[var(--muted)] text-center font-semibold">
-                      {language === "EN"
-                      ? "SOP drafting, audit readiness, equipment qualification, QC laboratories, QA responsabilities, ..."
-                      : "Rédaction de SOP, préparation aux audits, qualification des équipements, laboratoires de CQ, responsabilités d'AQ, ..."
-                      }
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <Image
-                      src={darkMode ? "/server-icon-light.svg" : "/server-icon-dark.svg"}
-                      alt="Quality & IT Systems Icon"
-                      width={160}
-                      height={160}
-                      className="mb-4"
-                    />
-                    <h3 className="text-xl font-bold mb-2">{language === "EN" ? "Quality & IT Systems" : "Qualité & Systèmes informatiques"}</h3>
-                    <p className="text-[var(--muted)] text-center font-semibold">
-                      {language === "EN"
-                      ? "21 CFR Part 11, Computer System Validation, LIMS (SENAITE), ERPNext integration, QMS, deviation tracking"
-                      : "21 CFR Part 11, validation des systèmes, LIMS (SENAITE), intégration ERPNext, QMS, suivi des déviations"
-                      }
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <Image
-                      src={darkMode ? "/ef-icon-light.svg" : "/ef-icon-dark.svg"}
-                      alt="Entrepreneurship Icon"
-                      width={160}
-                      height={160}
-                      className="mb-4"
-                    />
-                    <h3 className="text-xl font-bold mb-2">{language === "EN" ? "Entrepreneurship & Finance" : "Entrepreneuriat & Finance"}</h3>
-                    <p className="text-[var(--muted)] text-center font-semibold">
-                      {language === "EN"
-                      ? "Incoterms, startup structuring, vendor qualification, financial modeling"
-                      : "Incoterms, structure de startup, qualification des fournisseurs, modélisation financière"
-                      }
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <Image
-                      src={darkMode ? "/pm-icon-light.svg" : "/pm-icon-dark.svg"}
-                      alt="Biopharmaceutical Engineering Icon"
-                      width={160}
-                      height={160}
-                      className="mb-4"
-                    />
-                    <h3 className="text-xl font-bold mb-2"> {language === "EN" ? "Pharmaceutical Manufacturing" : "Fabrication pharmaceutique"}</h3>
-                    <p className="text-[var(--muted)] text-center font-semibold">
-                      {language === "EN"
-                      ? "Scale-up processes, batch documentation, facility layout, tech transfer"
-                      : "Mise à l'échelle, documentation des lots, aménagement des installations, transfert technologique"
-                      }
-                      
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <Image
-                      src={darkMode ? "/bio-icon-light.svg" : "/bio-icon-dark.svg"}
-                      alt="Biopharmaceutical Engineering Icon"
-                      width={160}
-                      height={160}
-                      className="mb-4"
-                    />
-                    <h3 className="text-xl font-bold mb-2">{language === "EN" ? "Biopharmaceutical Engineering & Manufacturing" : "Génie & Fabrication biopharmaceutiques"}</h3>
-                    <p className="text-[var(--muted)] text-center font-semibold">
-                      {language === "EN"
-                      ? "Process development, formulation, bioreactors, upstream/downstream optimization"
-                      : "Développement des procédés, formulation, bioréacteurs, optimisation amont/aval"
-                      }
-                    </p>
-                  </div>
-                </div>
                 </motion.section>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                  {topics.map((topic, idx) => (
+                    <motion.div
+                      key={topic.title.EN}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: idx * 0.1 }}
+                      viewport={{ once: true }}
+                      className={`rounded-lg overflow-hidden bg-[var(--background)] p-6 flex flex-col items-center text-center
+                        transition-transform duration-300 hover:scale-110 hover:-translate-y-1
+                        ${darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
+                    >
+                      <Image
+                        src={darkMode ? topic.icon.light : topic.icon.dark}
+                        alt={
+                          language === "EN"
+                            ? `${topic.title.EN} Icon`
+                            : `${topic.title.FR} Icône`
+                        }
+                        width={160}
+                        height={160}
+                        className="mb-4"
+                      />
+
+                      <h3 className="text-xl font-bold mb-2">
+                        {language === "EN" ? topic.title.EN : topic.title.FR}
+                      </h3>
+
+                      <p className="text-[var(--muted)] font-semibold">
+                        {language === "EN"
+                          ? topic.description.EN
+                          : topic.description.FR}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
               </section>
 
-              <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-1" />
+              <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto mt-20" />
 
               <section id="contact" className="text-center px-8 max-w-2xl mx-auto">
                 <motion.section

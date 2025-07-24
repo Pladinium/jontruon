@@ -4,10 +4,10 @@
 <rect x="20" y="72" width="168" height="50" fill="#1F1F1F" stroke="#EBEBEB" stroke-width="2"/>
 <rect x="20" y="127" width="168" height="50" fill="#1F1F1F" stroke="#EBEBEB" stroke-width="2"/>
 <rect x="20" y="182" width="168" height="50" fill="#1F1F1F" stroke="#EBEBEB" stroke-width="2"/>
-<circle cx="36" cy="207" r="7" fill="#359A4B"/>
-<circle cx="36" cy="98" r="7" fill="#359A4B"/>
-<circle cx="36" cy="43" r="7" fill="#359A4B"/>
-<circle cx="36" cy="152" r="7" fill="#359A4B"/>
+<circle cx="36" cy="207" r="7" fill="#EBEBEB"/>
+<circle cx="36" cy="98" r="7" fill="#EBEBEB"/>
+<circle cx="36" cy="43" r="7" fill="#EBEBEB"/>
+<circle cx="36" cy="152" r="7" fill="#EBEBEB"/>
 <rect x="50" y="35" width="74" height="16" fill="#EBEBEB"/>
 <rect x="170" y="35" width="4" height="16" fill="#EBEBEB"/>
 <rect x="149" y="35" width="4" height="16" fill="#EBEBEB"/>
