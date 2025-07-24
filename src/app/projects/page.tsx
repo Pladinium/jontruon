@@ -55,7 +55,7 @@ const timelineData: TLItem[] = [
     month: {EN: "November", FR: "Novembre"},
     title: {EN: "University Project", FR: "Projet d'université"},
     description: {
-      EN: "Made an education 5-minute video using Blender and a poster presentation on current therapies for Parkinson's Disease.",
+      EN: "Made a 5-minute education video using Blender and a poster presentation on current therapies for Parkinson's Disease.",
       FR: "Réalisation d'une vidéo éducative de 5 minutes à l'aide de Blender et d'une présentation par affiche sur les thérapies actuelles de la maladie de Parkinson.",
     },
   },

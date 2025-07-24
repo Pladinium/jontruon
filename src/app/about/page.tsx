@@ -343,7 +343,7 @@ export default function AboutPage() {
               <p>
                 {language === "EN"
                   ? "I'm interested in fragrance chemistry, and I enjoy trying out new fragrances. My two only gripes are that this hobby is very expensive and that I'm allergic to more affordable fragrances. For these reasons, I wear fragrances sparingly."
-                  : "Je m'intéresse à la chimie des parfums et j'aime découvrir des nouvelles fragrances. Mon deux reproches, ce sont que ce passe-temps est très coûteux et que je suis allergique aux parfums moins coûteux. Pour ces raisons, j'utilise rarement mes parfums."}
+                  : "Je m'intéresse à la chimie des parfums et j'aime découvrir des nouvelles fragrances. Mon deux reproches sont que ce passe-temps est très coûteux et que je suis allergique aux parfums abordables. Pour ces raisons, j'utilise rarement mes parfums."}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
