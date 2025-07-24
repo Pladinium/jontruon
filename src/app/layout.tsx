@@ -6,12 +6,12 @@ import ClientLayout from "./components/ClientLayoutWrapper";
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="EN" suppressHydrationWarning>
+    <html lang={"EN"} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -29,10 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
         <body
-          className={`${roboto.variable}
+          className={`${roboto.className}
             antialiased
             bg-[var(--background)] text-[var(--foreground)]
-            transition-colors duration-500 will-change-[background-color,color]`}
+            transition-colors duration-200 ease-out`}
         >
         <ClientLayout>{children}</ClientLayout>
       </body>

@@ -68,22 +68,19 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
   );
 
   return (
-    <nav className={`fixed top-2 left-0 right-0 z-50 mx-auto max-w-7xl rounded-lg shadow-lg text-[#ebebeb] transition-transform duration-300 ${
+    <nav className={`fixed top-2 left-0 right-0 z-50 mx-auto max-w-6xl rounded-lg shadow-lg text-[var(--foreground)] transition-transform duration-300 ${
       show ? "translate-y-0" : "-translate-y-[110%]"
     }`}>
-      <div className="flex items-center justify-between px-6 md:px-8 py-4 md:py-8 border-b bg-gradient-to-t from-black to-[#3d3d3d] rounded-lg shadow-2xl">
+      <div className="backdrop-blur-sm flex items-center justify-between px-6 md:px-8 py-4 md:py-8 border bg-(var(--background)) transition-all rounded-lg shadow-4xl">
 
-        <Link
-          href="/"
-          className="text-2xl font-bold touch-active-bg rounded px-2 py-1 transition-colors duration-150 inline-block"
-        >
+        <Link href="/" className="text-2xl font-bold touch-active-bg rounded px-2 py-1 transition-all duration-150 inline-block hover:text-[var(--accent)]">
           Jonathan Truong
         </Link>
 
 
         <div
          className="hidden md:flex items-center gap-6 ">
-          <ul className="flex flex-row gap-6 text-lg font-bold touch-active-bg transition-colors duration-150">
+          <ul className="flex flex-row gap-6 text-lg font-bold touch-active-bg transition-colors duration-200">
             {navLinks}
           </ul>
 
@@ -109,7 +106,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
       </div>
 
       <div
-        className={`md:hidden px-6 bg-gradient-to-t from-black to-[#3d3d3d] rounded-b-lg shadow-2xl text-lg font-bold overflow-hidden transform transition-all duration-500 ease-out
+        className={`backdrop-blur-sm md:hidden px-6 bg-[var(--background)/70] rounded-b-lg shadow-2xl text-lg font-bold overflow-hidden transform transition-all duration-300 ease-out
           ${isMenuOpen ? "max-h-[500px] opacity-100 translate-y-0 py-4 space-y-2" : "max-h-0 opacity-0 -translate-y-4 py-0"}
         `}
       >

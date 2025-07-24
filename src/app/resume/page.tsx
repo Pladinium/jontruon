@@ -18,19 +18,24 @@ export default function ResumePage() {
   }, []);
 
 return (
-    <main
-        className={`flex flex-col items-center justify-center min-h-screen pt-50
-        bg-[var(--background)] text-[var(--foreground)]
-        transition-all duration-700 ease-out will-change-transform
-        ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-    >
-      <h1 className="text-4xl font-bold mb-4">
-        {language === "EN" ? "Resume" : "CV"}
-      </h1>
+    <main className={`pt-66 flex flex-col items-center justify-center min-h-screen bg-[var(--background)] text-[var(--foreground)] transition-colors duration-200 ease-out`}>
+      
+      <section className={`flex flex-col items-center text-center transition-[opacity,translate] duration-700 ease-out ${
+        loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      }`}>
 
-      <p className="mb-8 text-center max-w-2xl">
+<h1 className="text-center font-bold mb-6 text-4xl sm:text-4xl md:text-5xl">
+  <span
+    className="sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-b sm:from-[var(--foreground)] sm:to-[var(--muted)]"
+  >
+    {language === "EN" ? "Resume" : "CV"}
+  </span>
+</h1>
+
+
+      <p className="mb-8 text-center text-lg font-[450] max-w-2xl">
         {language === "EN"
-          ? "Here’s a quick look at my current resume. Download the full PDF below for the best quality."
+          ? "Here's a quick look at my current resume. Download the full PDF below for the best quality."
           : "Voici un aperçu de mon CV actuel. Téléchargez le PDF complet ci-dessous pour une meilleure qualité."}
       </p>
 
@@ -39,12 +44,12 @@ return (
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block px-6 py-3 bg-[var(--foreground)] text-[var(--background)]
-        font-semibold rounded hover:opacity-80 transition"
+        font-semibold rounded hover:opacity-80 transition items-center"
       >
         {language === "EN" ? "Download PDF" : "Télécharger PDF"}
       </a>
 
-      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-6" />
+      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-12" />
 
       {pages.map((src, idx) => (
         <div
@@ -63,29 +68,40 @@ return (
 
       <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-6" />
 
-      <section className="w-full max-w-4xl mb-8">
+      <section className="w-full max-w-3xl mb-8">
         <h2 className="text-2xl text-center font-semibold mb-2">
           {language === "EN" ? "Additional Skills" : "Compétences supplémentaires"}
         </h2>
-        <ul className="list-disc list-inside text-[var(--foreground)]">
-          <li>Python Programming Language</li>
-          <li>C Programming Language</li>
-          <li>SQL Programming Language</li>
-          <li>Lua/Luau Programming Language</li>
-          <li>Next.js, React, Tailwind CSS</li>
-          <li>Javascript/Typescript</li>
-          <li>Figma Design</li>
-        </ul>
+          <ul className="list-disc list-inside text-left font-[450] text-[var(--foreground)]">
+            <li>{language === "EN" ? "Python Programming Language" : "Langage de programmation Python"}</li>
+            <li>{language === "EN" ? "C Programming Language" : "Langage de programmation C"}</li>
+            <li>{language === "EN" ? "SQL Programming Language" : "Langage de programmation SQL"}</li>
+            <li>{language === "EN" ? "Lua/Luau Programming Language" : "Langage de programmation Lua/Luau"}</li>
+            <li>{language === "EN" ? "Next.js, React, Tailwind CSS" : "Next.js, React, Tailwind CSS"}</li>
+            <li>{language === "EN" ? "Javascript/Typescript" : "Javascript/Typescript"}</li>
+            <li>{language === "EN" ? "Figma Design" : "Conception avec Figma"}</li>
+          </ul>
 
-        <h2 className="text-2xl text-center font-semibold mt-6 mb-2">
-        {language === "EN" ? "Certifications" : "Certifications"}
-        </h2>
-        <ul className="list-disc list-inside text-[var(--foreground)]">
-          <li>National Lifeguard (Pool) — Lifesaving Society (Expires in July 2026)</li>
-          <li>Standard First Aid & CPR-C/AED — Lifesaving Society (Expires in July 2027)</li>
-        </ul>
+          <h2 className="text-2xl text-center font-semibold mt-6 mb-2">
+            {language === "EN" ? "Certifications" : "Certifications"}
+          </h2>
+
+          <ul className="list-disc list-inside text-left font-[450] text-[var(--foreground)]">
+            <li>
+              {language === "EN"
+                ? "National Lifeguard (Pool) — Lifesaving Society (Expires in July 2026)"
+                : "Sauveteur national (piscine) — Société de sauvetage (Expire en juillet 2026)"}
+            </li>
+            <li>
+              {language === "EN"
+                ? "Standard First Aid & CPR-C/AED — Lifesaving Society (Expires in July 2027)"
+                : "Premiers soins – RCR-C/DÉA — Société de sauvetage (Expire en juillet 2027)"}
+            </li>
+          </ul>
       </section>
 
+      <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-1" />
+      </section>
     </main>
   );
 }
