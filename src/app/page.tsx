@@ -113,17 +113,17 @@ export default function HomePage() {
             height={600}
             className="absolute top-[2.5%] left-1/2 -translate-x-1/2 opacity-20 z-[-1] pointer-events-none"
           />
-          <div className="w-40 h-40 rounded-full bg-gray-300 dark:bg-gray-700" />
-          {/* Example when photo available:
+        <div className="w-40 h-40 rounded-full overflow-hidden">
           <Image
-            src="/profile.jpg"
-            width={160}
-            height={160} 
+            src="/image-1.jpg"
             alt="Jonathan Truong portrait"
-            className="rounded-full"
-          priority
+            width={160}
+            height={160}
+            className="object-cover w-full h-full"
+            priority
           />
-          */}
+        </div>
+
 
           <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[var(--foreground)] to-[var(--muted)] leading-normal">
             Jonathan&nbsp;Truong 
@@ -174,7 +174,7 @@ export default function HomePage() {
             </button>
           </div>
 
-          <div className="mt-2">
+          <div className="mt-2 flex gap-4 justify-center">
             <a
               href="https://www.linkedin.com/in/jontruon"
               target="_blank"
@@ -189,7 +189,23 @@ export default function HomePage() {
                 className="hover:opacity-60 transition-opacity"
               />
             </a>
+
+            <a
+              href="https://github.com/Pladinium"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Image
+                src={darkMode ? "/github-white.png" : "/github-dark.png"}
+                alt="Github Icon"
+                width={36}
+                height={36}
+                className="hover:opacity-60 transition-opacity"
+              />
+            </a>
           </div>
+
 
               </section>
               
