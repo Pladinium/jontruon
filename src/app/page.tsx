@@ -94,25 +94,32 @@ const topics = [
 ];
 
 export default function HomePage() {
+  
   const [loaded, setLoaded] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {setLoaded(true);}, []);
+  useEffect(() => {setHasMounted(true);}, []);
 
   const { language } = useLanguage();
   const { darkMode } = useTheme();
+
 
   return (
     <main className={`flex flex-col items-center justify-center min-h-screen bg-[var(--background)] text-[var(--foreground)] transition-colors duration-200 ease-out`}>
       <section className={`transition-[opacity,translate] duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <section id="home" className="flex flex-col items-center justify-center min-h-screen pt-48 text-center px-4 gap-6">
-          <Image
-            src="/8or9.png"
-            alt="AADC Background"
-            width={600}
-            height={600}
-            className="absolute top-[2.5%] left-1/2 -translate-x-1/2 opacity-20 z-[-1] pointer-events-none"
-          />
+          <div className="absolute left-1/2 -translate-x-1/2 top-[2.5%] w-[min(100vw,600px)] overflow-hidden z-[-1] pointer-events-none">
+            <Image
+              src="/8or9.png"
+              alt="AADC Background"
+              width={600}
+              height={600}
+              className="opacity-20 w-full h-auto"
+            />
+          </div>
+
         <div className="w-40 h-40 rounded-full overflow-hidden">
           <Image
             src="/image-1.jpg"
@@ -175,35 +182,39 @@ export default function HomePage() {
           </div>
 
           <div className="mt-2 flex gap-4 justify-center">
-            <a
-              href="https://www.linkedin.com/in/jontruon"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
-            >
-              <Image
-                src={darkMode ? "/linkedin-logo-white.png" : "/linkedin-logo-black.png"}
-                alt="LinkedIn icon"
-                width={36}
-                height={36}
-                className="hover:opacity-60 transition-opacity"
-              />
-            </a>
+            {hasMounted && (
+              <a
+                href="https://www.linkedin.com/in/jontruon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Image
+                  src={darkMode ? "/linkedin-logo-white.png" : "/linkedin-logo-black.png"}
+                  alt="LinkedIn icon"
+                  width={36}
+                  height={36}
+                  className="hover:opacity-60 transition-opacity"
+                />
+              </a>
+            )}
 
-            <a
-              href="https://github.com/Pladinium"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
-            >
-              <Image
-                src={darkMode ? "/github-white.png" : "/github-dark.png"}
-                alt="Github Icon"
-                width={36}
-                height={36}
-                className="hover:opacity-60 transition-opacity"
-              />
-            </a>
+            {hasMounted && (
+              <a
+                href="https://github.com/Pladinium"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Image
+                  src={darkMode ? "/github-white.png" : "/github-dark.png"}
+                  alt="Github Icon"
+                  width={36}
+                  height={36}
+                  className="hover:opacity-60 transition-opacity"
+                />
+              </a>
+            )}
           </div>
 
 
@@ -268,20 +279,19 @@ export default function HomePage() {
                       transition={{ duration: 0.4, delay: idx * 0.1 }}
                       viewport={{ once: true }}
                       className={`rounded-lg overflow-hidden bg-[var(--background)] p-6 flex flex-col items-center text-center
-                        transition-transform duration-300 hover:scale-110 hover:-translate-y-1
-                        ${darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
+                        transition-transform duration-300 hover:scale-105 hover:-translate-y-1
+                        ${hasMounted && darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
                     >
-                      <Image
-                        src={darkMode ? topic.icon.light : topic.icon.dark}
-                        alt={
-                          language === "EN"
-                            ? `${topic.title.EN} Icon`
-                            : `${topic.title.FR} Icône`
-                        }
-                        width={160}
-                        height={160}
-                        className="mb-4"
-                      />
+                      {hasMounted && (
+                        <Image
+                          src={darkMode ? topic.icon.light : topic.icon.dark}
+                          alt={language === "EN" ? `${topic.title.EN} Icon` : `${topic.title.FR} Icône`}
+                          width={160}
+                          height={160}
+                          className="mb-4"
+                          priority
+                        />
+                      )}
 
                       <h3 className="text-xl font-bold mb-2">
                         {language === "EN" ? topic.title.EN : topic.title.FR}
@@ -340,5 +350,6 @@ export default function HomePage() {
               <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-1" />
       </section>
     </main>
+    
   );
 }

@@ -11,7 +11,7 @@ const roboto = Roboto({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={"EN"} suppressHydrationWarning>
+    <html lang={"EN"} suppressHydrationWarning={true}>
       <head>
         <script
           dangerouslySetInnerHTML={{

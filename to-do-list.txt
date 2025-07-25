@@ -1,4 +1,2 @@
 1- (Projects) Take picture of my PC
 2- (Resume) Update my CVs when I graduate
-3- Fix navbar glass effect on Ipad
-4- Fix navbar activate effect on Ipad

@@ -4,6 +4,13 @@ import { useTheme } from "./ThemeContext";
 
 export default function ThemeToggle() {
   const { darkMode, setDarkMode } = useTheme();
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null;
 
   return (
     <button

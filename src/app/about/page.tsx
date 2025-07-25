@@ -11,6 +11,7 @@ export default function AboutPage() {
   const { language } = useLanguage();
   const [direction, setDirection] = useState(1);
   const { darkMode } = useTheme();
+  const [hasMounted, setHasMounted] = useState(false);
 
   const reversedAircraftList = [
     {rank: 1, name: "Lockheed F-22A Raptor", image: "/f22a.webp", source: "By Rob Shenk from Great Falls, VA, USA - F-22 Raptor, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=6414481"},
@@ -149,6 +150,7 @@ export default function AboutPage() {
   const helicopter = reversedHelicopterList[helicopterIndex];
 
   useEffect(() => {setLoaded(true);}, []);
+  useEffect(() => {setHasMounted(true);}, []);
 
   return (
     <main className={`pt-50 flex flex-col items-center justify-center min-h-screen bg-[var(--background)] text-[var(--foreground)] transition-colors duration-200 ease-out`}>
@@ -264,6 +266,7 @@ export default function AboutPage() {
                             fill
                             sizes="(max-width:768px) 100vw, 600px"
                             className="object-contain"
+                            priority
                           />
                         </motion.div>
                       </AnimatePresence>
@@ -309,7 +312,7 @@ export default function AboutPage() {
                       transition={{ duration: 0.4, delay: idx * 0.1 }}
                       viewport={{ once: true }}
                       className={`rounded-xl overflow-hidden bg-[var(--background)] transition-transform duration-300 hover:scale-110 hover:-translate-y-1"
-                      ${darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
+                      ${hasMounted && darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
                       >
                       <div className="relative w-full aspect-[20/9]">
                         <Image
@@ -356,7 +359,7 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                     className={`rounded-xl overflow-hidden drop-shadow-2xl bg-[var(--background)]
                               transition-transform duration-300 hover:scale-110 hover:-translate-y-1
-                              ${darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
+                              ${hasMounted && darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
                   >
                     <div className="relative w-full aspect-[4/5] overflow-hidden rounded-t-xl">
                       <Image

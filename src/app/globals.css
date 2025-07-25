@@ -35,7 +35,7 @@ html, body {
 
 @media (pointer: coarse) {
   .touch-active-bg:active {
-    background-color: var(--hover-bg, #e5e7eb);
+    background-color: var(--foreground);
   }
 }
 
@@ -64,4 +64,11 @@ html.dark {
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .supports-blur {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
 }

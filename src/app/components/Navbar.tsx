@@ -42,36 +42,42 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const navLinks = (
-    <>
-      <li><Link href="/" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
-          {navLabels.home}
-        </Link>
-      </li>
-          <li><Link href="/about" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
-          {navLabels.about}
-        </Link>
-      </li>
-          <li><Link href="/resume" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
-          {navLabels.resume}
-        </Link>
-      </li>
-          <li><Link href="/projects" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
-          {navLabels.projects}
-        </Link>
-      </li>
-          <li><Link href="/resources" className="touch-active-bg navlink-feedback rounded px-1 py-1 transition-colors duration-150">
-          {navLabels.resources}
-        </Link>
-      </li>
-    </>
-  );
+const navLinks = (
+  <>
+    <li className="list-none">
+      <Link href="/" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+        {navLabels.home}
+      </Link>
+    </li>
+    <li className="list-none">
+      <Link href="/about" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+        {navLabels.about}
+      </Link>
+    </li>
+    <li className="list-none">
+      <Link href="/resume" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+        {navLabels.resume}
+      </Link>
+    </li>
+    <li className="list-none">
+      <Link href="/projects" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+        {navLabels.projects}
+      </Link>
+    </li>
+    <li className="list-none">
+      <Link href="/resources" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+        {navLabels.resources}
+      </Link>
+    </li>
+  </>
+);
+
 
   return (
-    <nav className={`fixed top-2 left-0 right-0 z-50 mx-auto max-w-6xl rounded-lg shadow-lg text-[var(--foreground)] transition-transform duration-300 ${
+    <nav className={`fixed top-2 left-0 right-0 z-50 mx-auto max-w-5xl rounded-lg shadow-lg text-[var(--foreground)] transition-transform duration-300 ${
       show ? "translate-y-0" : "-translate-y-[110%]"
     }`}>
-      <div className="backdrop-blur-sm flex items-center justify-between px-6 md:px-8 py-4 md:py-8 border bg-(var(--background)) transition-all rounded-lg shadow-4xl">
+      <div className="supports-blur transform-gpu will-change-transform bg-[rgba(var(--background-rgb),0.7)] flex items-center justify-between px-6 md:px-8 py-4 md:py-8 border bg-(var(--background)) transition-all rounded-lg shadow-4xl">
 
         <Link href="/" className="text-2xl font-bold touch-active-bg rounded px-2 py-1 transition-all duration-150 inline-block hover:text-[var(--accent)]">
           Jonathan Truong
@@ -80,7 +86,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
 
         <div
          className="hidden md:flex items-center gap-6 ">
-          <ul className="flex flex-row gap-6 text-lg font-bold touch-active-bg transition-colors duration-200">
+          <ul className="flex flex-row gap-6 text-lg font-bold transition-colors duration-200">
             {navLinks}
           </ul>
 
@@ -106,7 +112,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
       </div>
 
       <div
-        className={`backdrop-blur-sm md:hidden px-6 bg-[var(--background)/70] rounded-b-lg shadow-2xl text-lg font-bold overflow-hidden transform transition-all duration-300 ease-out
+        className={`backdrop-blur-sm transform-gpu will-change-transform md:hidden px-6 bg-[rgba(var(--background-rgb),0.7)] rounded-b-lg shadow-2xl text-lg font-bold overflow-hidden transition-all duration-300 ease-out
           ${isMenuOpen ? "max-h-[500px] opacity-100 translate-y-0 py-4 space-y-2" : "max-h-0 opacity-0 -translate-y-4 py-0"}
         `}
       >

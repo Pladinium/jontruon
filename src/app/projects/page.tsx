@@ -88,8 +88,11 @@ export default function TimelinePage() {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-  useEffect(() => setLoaded(true), []);
   const { darkMode } = useTheme();
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => setLoaded(true), []);
+  useEffect(() => {setHasMounted(true);}, []);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
@@ -170,12 +173,14 @@ export default function TimelinePage() {
                 ></div>
 
                 {/* Cards */}
+                {hasMounted && (
                 <div
                   className={`absolute ${
                     isEven ? "bottom-[calc(50%+3rem)]" : "top-[calc(50%+3rem)]"
                   } left-1/2 -translate-x-1/2 bg-[var(--background)] text-[var(--foreground)] rounded-lg p-6 text-center w-80
                    ${darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
                 >
+
                   {item.image && (
                     <Image
                       src={item.image}
@@ -192,6 +197,7 @@ export default function TimelinePage() {
                     {language === "EN" ? item.description.EN : item.description.FR}
                   </p>
                 </div>
+                )}
               </div>
               );
             })}
@@ -211,7 +217,7 @@ export default function TimelinePage() {
                 <span className="absolute -translate-x-13 top-2 w-4 h-4 rounded-full bg-[var(--foreground)] border-4 border-[var(--background)]" />
 
                 <div className={`bg-[var(--background)] text-[var(--foreground)] rounded-lg p-6
-                  ${darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
+                  ${hasMounted && darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
                 >
                   {item.image && (
                     <div className="mb-4 overflow-hidden rounded-md">
@@ -221,6 +227,7 @@ export default function TimelinePage() {
                         width={640}
                         height={360}
                         className="w-full h-auto object-cover"
+                        priority
                       />
                     </div>
                   )}
