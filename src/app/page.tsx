@@ -31,8 +31,8 @@ const topics = [
       FR: "Rédaction de SOP, préparation aux audits, qualification des équipements, laboratoires de CQ, responsabilités d'AQ",
     },
     icon: {
-      dark: "/qc-icon-dark.svg",
-      light: "/qc-icon-light.svg",
+      dark: "/qc-icon-light.svg",
+      light: "/qc-icon-dark.svg",
     },
   },
   {
