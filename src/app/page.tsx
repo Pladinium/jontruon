@@ -165,7 +165,7 @@ export default function HomePage() {
                 setCopied(true);
                 setTimeout(() => setCopied(false), 2000);
               }}
-              className="mt-2 flex items-center gap-1 text-xs font-semibold px-2 py-1 hover:bg-[var(--foreground)] hover:text-[var(--background)] jon.truon@gmail.com"
+              className="mt-2 flex items-center gap-1 text-xs font-semibold px-2 py-1 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors duration-200 ease-out"
             >
               <Copy size={12} />
               {language === "EN" 
