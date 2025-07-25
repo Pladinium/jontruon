@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
+
 type NavbarProps = {
   language: string;
   setLanguage: (lang: string) => void;
@@ -38,39 +39,49 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-const navLinks = (
-  <>
-    <li className="list-none">
-      <Link href="/" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
-        {navLabels.home}
-      </Link>
-    </li>
-    <li className="list-none">
-      <Link href="/about" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
-        {navLabels.about}
-      </Link>
-    </li>
-    <li className="list-none">
-      <Link href="/resume" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
-        {navLabels.resume}
-      </Link>
-    </li>
-    <li className="list-none">
-      <Link href="/projects" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
-        {navLabels.projects}
-      </Link>
-    </li>
-    <li className="list-none">
-      <Link href="/resources" className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
-        {navLabels.resources}
-      </Link>
-    </li>
-  </>
-);
+  const handleSelfLink = (href: string) => (e: React.MouseEvent) => {
+    console.log("self-link clicked", href);   // 👈 add this
+    if (window.location.pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left:0 , behavior: "smooth" });
+      setIsMenuOpen(false);
+    }
+  };
+
+
+  const navLinks = (
+    <>
+      <li className="list-none">
+        <Link href="/" onClick={handleSelfLink("/")} className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+          {navLabels.home}
+        </Link>
+      </li>
+      <li className="list-none">
+        <Link href="/about" onClick={handleSelfLink("/about")} className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+          {navLabels.about}
+        </Link>
+      </li>
+      <li className="list-none">
+        <Link href="/resume" onClick={handleSelfLink("/resume")} className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+          {navLabels.resume}
+        </Link>
+      </li>
+      <li className="list-none">
+        <Link href="/projects" onClick={handleSelfLink("/projects")} className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+          {navLabels.projects}
+        </Link>
+      </li>
+      <li className="list-none">
+        <Link href="/resources" onClick={handleSelfLink("/resources")} className="inline-block navlink-feedback rounded px-1 py-1 touch-active-bg transition-colors duration-150 cursor-pointer touch-manipulation">
+          {navLabels.resources}
+        </Link>
+      </li>
+    </>
+  );
 
 
   return (
