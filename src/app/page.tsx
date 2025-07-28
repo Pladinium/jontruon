@@ -111,7 +111,7 @@ export default function HomePage() {
         <section id="home" className="flex flex-col items-center justify-center min-h-screen pt-48 text-center px-4 gap-6">
           <div className="absolute left-1/2 -translate-x-1/2 top-[2.5%] w-[min(100vw,600px)] overflow-hidden z-[-1] pointer-events-none">
             <Image
-              src="/8or9.png"
+              src="/assets/personal/8or9.png"
               alt="AADC Background"
               width={600}
               height={600}
@@ -121,7 +121,7 @@ export default function HomePage() {
 
         <div className="w-40 h-40 rounded-full overflow-hidden">
           <Image
-            src="/image-1.jpg"
+            src="/assets/personal/image-1.jpg"
             alt="Jonathan Truong portrait"
             width={160}
             height={160}
@@ -189,7 +189,7 @@ export default function HomePage() {
                 className="inline-block"
               >
                 <Image
-                  src={darkMode ? "/linkedin-logo-white.png" : "/linkedin-logo-black.png"}
+                  src={darkMode ? "/assets/logos/linkedin-logo-white.png" : "/assets/logos/linkedin-logo-black.png"}
                   alt="LinkedIn icon"
                   width={36}
                   height={36}
@@ -206,7 +206,7 @@ export default function HomePage() {
                 className="inline-block"
               >
                 <Image
-                  src={darkMode ? "/github-white.png" : "/github-dark.png"}
+                  src={darkMode ? "/assets/logos/github-white.png" : "/assets/logos/github-dark.png"}
                   alt="Github Icon"
                   width={36}
                   height={36}
