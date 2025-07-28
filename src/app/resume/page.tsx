@@ -8,8 +8,8 @@ export default function ResumePage() {
   const [loaded, setLoaded] = useState(false);
 
   const pages = language === "EN"
-    ? ["/cv-en_page-0001.jpg", "/cv-en_page-0002.jpg"]
-    : ["/cv-fr_page-0001.jpg", "/cv-fr_page-0002.jpg"];
+    ? ["/assets/resume/cv-san-en-1.jpg", "/assets/resume/cv-san-en-2.jpg"]
+    : ["/assets/resume/cv-san-fr-1.jpg", "/assets/resume/cv-san-fr-2.jpg"];
 
   const pdf = language === "EN" ? "/cv-en.pdf" : "/cv-fr.pdf";
 

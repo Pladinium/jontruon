@@ -17,8 +17,8 @@ const topics = [
       FR: "BPF, BPL, BPDoc, GAMP 5, ICH, conformité FDA et Santé Canada",
     },
     icon: {
-      dark: "/law-scale-dark.svg",
-      light: "/law-scale-light.svg",
+      dark: "/assets/icons/law-scale-dark.svg",
+      light: "/assets/icons/law-scale-light.svg",
     },
   },
   {
@@ -31,8 +31,8 @@ const topics = [
       FR: "Rédaction de SOP, préparation aux audits, qualification des équipements, laboratoires de CQ, responsabilités d'AQ",
     },
     icon: {
-      dark: "/qc-icon-light.svg",
-      light: "/qc-icon-dark.svg",
+      dark: "/assets/icons/qc-icon-light.svg",
+      light: "/assets/icons/qc-icon-dark.svg",
     },
   },
   {
@@ -45,22 +45,22 @@ const topics = [
       FR: "21 CFR Part 11, validation des systèmes, LIMS (SENAITE), intégration ERPNext, QMS, suivi des déviations",
     },
     icon: {
-      dark: "/server-icon-dark (2).svg",
-      light: "/server-icon-light (2).svg",
+      dark: "/assets/icons/server-icon-dark (2).svg",
+      light: "/assets/icons/server-icon-light (2).svg",
     },
   },
   {
     title: {
-      EN: "Entrepreneurship & Finance",
-      FR: "Entrepreneuriat & Finance",
+      EN: "Business Operations & Supply Chain",
+      FR: "Opérations Commerciales et Chaîne d'Approvisionnement",
     },
     description: {
-      EN: "Incoterms, startup structuring, vendor qualification, financial modeling",
-      FR: "Incoterms, structure de startup, qualification des fournisseurs, modélisation financière",
+      EN: "Incoterms, vendor qualification, financial modeling",
+      FR: "Incoterms, qualification des fournisseurs, modélisation financière",
     },
     icon: {
-      dark: "/ef-icon-dark.svg",
-      light: "/ef-icon-light.svg",
+      dark: "/assets/icons/ef-icon-dark.svg",
+      light: "/assets/icons/ef-icon-light.svg",
     },
   },
   {
@@ -73,8 +73,8 @@ const topics = [
       FR: "Mise à l'échelle, documentation des lots, aménagement des installations, transfert technologique",
     },
     icon: {
-      dark: "/pm-icon-dark.svg",
-      light: "/pm-icon-light.svg",
+      dark: "/assets/icons/pm-icon-dark.svg",
+      light: "/assets/icons/pm-icon-light.svg",
     },
   },
   {
@@ -87,8 +87,8 @@ const topics = [
       FR: "Développement des procédés, formulation, bioréacteurs, optimisation amont/aval",
     },
     icon: {
-      dark: "/bio-icon-dark (2).svg",
-      light: "/bio-icon-light (2).svg",
+      dark: "/assets/icons/bio-icon-dark (2).svg",
+      light: "/assets/icons/bio-icon-light (2).svg",
     },
   },
 ];
@@ -104,7 +104,6 @@ export default function HomePage() {
 
   const { language } = useLanguage();
   const { darkMode } = useTheme();
-
 
   return (
     <main className={`flex flex-col items-center justify-center min-h-screen bg-[var(--background)] text-[var(--foreground)] transition-colors duration-200 ease-out`}>
@@ -142,8 +141,8 @@ export default function HomePage() {
 
           <p className="text-lg font-bold text-[var(--foreground)] max-w-prose">
             {language === "EN"
-              ? "Pharmacology Student at McGill & Aspiring Entrepreneur in the Pharmaceutical and Biopharmaceutical Industries"
-              : "Étudiant en pharmacologie à McGill et entrepreneur en devenir dans les industries pharmaceutique et biopharmaceutique"}
+              ? "Pharmacology Student at McGill | Developing Expertise in Pharmaceutical Manufacturing and Quality Systems"
+              : "Étudiant en pharmacologie à McGill | Développement d'une expertise en fabrication pharmaceutique et en systèmes de qualité"}
           </p>
 
           <div className="flex gap-4 mt-4">
@@ -229,18 +228,13 @@ export default function HomePage() {
                   <div className="text-[var(--foreground)] max-w-2xl space-y-4 font-[450] text-lg text-center lg:text-left mx-auto">
                     <p>
                       {language === "EN"
-                        ? "I'm interested in anything drug-related, especially pharmaceutical and biopharmaceutical manufacturing. Research suggests that biologics are the future of therapeutics due to better clinical outcomes."
-                        : "Je m'intéresse à tout ce qui touche aux médicaments, en particulier à la fabrication pharmaceutique et biopharmaceutique. Les recherches suggèrent que les biomédicaments représentent l'avenir des traitements en raison de meilleurs résultats cliniques."}
+                        ? "I'm passionate about pharmaceutical science and operations, with a growing focus on drug manufacturing, quality control, and GMP systems. My studies in pharmacology at McGill University have given me a strong scientific foundation, and I've expanded this knowledge by exploring digital tools like ERP and LIMS to understand how pharmaceutical companies ensure compliance and efficiency."
+                        : "Je suis passionné par les sciences pharmaceutiques et les opérations, avec un intérêt croissant pour la fabrication de médicaments, le contrôle qualité et les systèmes BPF (Bonnes Pratiques de Fabrication). Mes études en pharmacologie à l'Université McGill m'ont permis d'acquérir une solide base scientifique, que j'ai enrichie en explorant des outils numériques tels qu'ERP et LIMS, afin de mieux comprendre comment les entreprises pharmaceutiques assurent la conformité et l'efficacité de leurs processus."}
                     </p>
                     <p>
                       {language === "EN"
-                        ? "I'm also highly interested in business and entrepreneurship. My greatest ambition is to build a company that innovates on biopharmaceutical manufacturing for better drug accessibility for patients."
-                        : "Je suis également intéressé par les affaires et l'entrepreneuriat. Ma plus grande ambition est de fonder une entreprise qui innove dans la fabrication biopharmaceutique afin de rendre les médicaments plus accessibles aux patients."}
-                    </p>
-                    <p>
-                      {language === "EN"
-                        ? "Before launching my own enterprise, I'm looking for internships or work opportunities at a pharmaceutical company to gain experience, learn from industry professionals, and build meaningful connections."
-                        : "Avant de lancer ma propre entreprise, je cherche un stage ou un emploi dans une entreprise pharmaceutique afin d'acquérir une expérience pratique, d'apprendre des professionnels de l'industrie et de nouer des liens solides."}
+                        ? "I'm currently looking for internships or work opportunities at a pharmaceutical company to gain experience, learn from industry professionals, and build meaningful connections."
+                        : "Je actuellement cherche un stage ou un emploi dans une entreprise pharmaceutique afin d'acquérir une expérience pratique, d'apprendre des professionnels de l'industrie et de nouer des liens solides."}
                     </p>
                     <p>
                       {language === "EN"
@@ -347,9 +341,8 @@ export default function HomePage() {
                 </motion.section>
               </section>
 
-              <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-1" />
+        <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-1" />
       </section>
     </main>
-    
   );
 }

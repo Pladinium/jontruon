@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JonTruon.com – Professional Portfolio
 
-## Getting Started
+This repository contains the source code for **JonTruon.com**, a personal portfolio and knowledge repository website.  
+The site showcases my **pharmaceutical quality systems learning journey**, including:
 
-First, run the development server:
+- **SOP Drafts** – Sample documentation aligned with GMP principles  
+- **Quality Compliance Notes** – Personal study notes on GMP, GLP, and GDocP  
+- **ERP/LIMS Exploration** – Insights from deploying ERPNext and SENAITE LIMS  
+- **Portfolio Showcase** – Projects, independent learning, and professional achievements  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Next.js](https://nextjs.org) – React framework for building the portfolio site  
+- [TypeScript](https://www.typescriptlang.org) – Typed JavaScript for maintainability  
+- [Tailwind CSS](https://tailwindcss.com) – Utility-first styling  
+- [Vercel](https://vercel.com) – Deployment platform  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Purpose
 
-To learn more about Next.js, take a look at the following resources:
+The goal of this repository is to:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Present my **self-directed learning** in pharmaceutical compliance and quality systems  
+- Share educational content with recruiters and professionals in the pharma industry  
+- Demonstrate technical capabilities in ERP/LIMS deployments and documentation workflows  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is **not a production implementation** and contains **sample materials only**.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**All Rights Reserved**  
+
+Copyright (c) 2025 Jonathan Truong  
+
+This repository and its contents (including documentation, SOP drafts, and any related resources) are provided **solely for educational and demonstration purposes**.  
+
+Redistribution, modification, or commercial use of any material without explicit written permission is **prohibited**.
+
+---
+
+## Contact
+
+- **Email:** jon.truon@gmail.com  
+- **Website:** [JonTruon.com](https://www.jontruon.com)  
+- **LinkedIn:** [linkedin.com/in/jontruon](https://www.linkedin.com/in/jontruon)
+
+---
+
+*This project reflects independent learning and is not affiliated with any organization or employer.*

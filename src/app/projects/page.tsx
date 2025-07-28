@@ -30,25 +30,40 @@ const timelineData: TLItem[] = [
   },
   {
     year: "2025",
-    month: {EN: "June", FR: "Juin"},
-    title: {EN: "Pharmaceutical LIMS Deployment", FR: "Déploiement d'un LIMS Pharmaceutique"},
-    description: {
-      EN: "Installed and configured SENAITE 2.6 on Ubuntu for controlled QC workflows.",
-      FR: "Installation et configuration de SENAITE 2.6 sur Ubuntu pour des flux de contrôle qualité maîtrisés.",
+    month: { EN: "June", FR: "Juin" },
+    title: { 
+      EN: "Pharmaceutical LIMS Exploration", 
+      FR: "Exploration d'un LIMS Pharmaceutique" 
     },
-    image: "/senaite-logo.svg",
+    description: {
+      EN: "Deployed SENAITE 2.6 on Ubuntu to explore its interface, capabilities, and QC workflow features.",
+      FR: "Déploiement de SENAITE 2.6 sur Ubuntu afin d'explorer son interface, ses fonctionnalités et ses flux de travail de contrôle qualité.",
+    },
+    image: "/assets/logos/senaite-logo.svg",
     imageAlt: "SENAITE 2.6",
   },
   {
     year: "2025",
-    month: {EN: "May", FR: "Mai"},
-    title: {EN: "Open-Source ERP Setup", FR: "Mise en Place d'un ERP Open-Source"},
-    description: {
-      EN: "Deployed ERPNext to simulate QC lab operations, with GMP-aligned chart of accounts.",
-      FR: "Déploiement d'ERPNext pour simuler les opérations de laboratoire QC, avec un plan comptable conforme aux BPF.",
+    month: { EN: "May", FR: "Mai" },
+    title: { 
+      EN: "Open-Source ERP Evaluation", 
+      FR: "Évaluation d'un ERP Open-Source" 
     },
-    image: "/erpnext-logo.svg",
+    description: {
+      EN: "Installed ERPNext to evaluate its modules and user interface for potential use in pharmaceutical QC operations.",
+      FR: "Installation d'ERPNext pour évaluer ses modules et son interface utilisateur en vue d'une utilisation potentielle dans des opérations QC pharmaceutiques.",
+    },
+    image: "/assets/logos/erpnext-logo.svg",
     imageAlt: "ERPNext dashboard",
+  },
+  {
+    year: "2025",
+    month: {EN: "March", FR: "Mars"},
+    title: {EN: "SOP Drafting Practice", FR: "Pratique de rédaction de PON"},
+    description: {
+      EN: "Created a SOP draft outlining best practices for SOP authorship in a GMP-compliant environment. The document includes metadata fields aligned with regulatory expectations and adopts standardized formatting for traceability and document control. Please refer to my GitHub repository for a sample draft SOP.",
+      FR: "Rédaction d'un PON décrivant les meilleures pratiques pour la rédaction de PON dans un environnement conforme aux BPF. Le document comprend des champs de métadonnées alignés sur les exigences réglementaires et adopte un format standardisé pour assurer la traçabilité et le contrôle documentaire. Veuillez consulter mon dépôt GitHub pour un exemple de PON rédigée.",
+    },
   },
   {
     year: "2024",
@@ -71,10 +86,12 @@ const timelineData: TLItem[] = [
 ];
 
 export default function TimelinePage() {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [loaded, setLoaded] = useState(false);
-
   const lang = language === "FR" ? "FR" : "EN";
+  const {darkMode} = useTheme();
+  const [hasMounted, setHasMounted] = useState(false);
+
 
   const sortedTimelineData = useMemo(() => {
     return [...timelineData].sort((a, b) => {
@@ -87,9 +104,6 @@ export default function TimelinePage() {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
-
-  const { darkMode } = useTheme();
-  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => setLoaded(true), []);
   useEffect(() => {setHasMounted(true);}, []);
@@ -130,7 +144,7 @@ export default function TimelinePage() {
 
         <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-12" />
 
-        {/* DESKTOP/TABLET */}
+        {/* Desktop */}
         <div
           ref={scrollRef}
           className="relative hidden md:block w-full overflow-x-auto cursor-grab select-none scrollbar-hide"
@@ -140,14 +154,12 @@ export default function TimelinePage() {
           onPointerLeave={endDrag}
           onPointerCancel={endDrag}
         >
-          {/* Timeline horizontal line */}
           <div
             className="absolute top-1/2 left-0 h-0.5 bg-[var(--muted)] z-0"
-            style={{ width: `${sortedTimelineData.length * 26}rem` }} // ← Adjust multiplier to match card spacing
+            style={{ width: `${sortedTimelineData.length * 26}rem` }}
           />
 
-          {/* Timeline items */}
-          <div className="flex gap-24 justify-start min-w-max px-12 py-[20rem] relative z-10 min-h-[50rem]">
+          <div className="flex gap-10 justify-start min-w-max px-12 py-[30rem] relative z-5 min-h-[50rem]">
             {sortedTimelineData.map((item, index) => {
               const isEven = index % 2 === 0;
               return (
@@ -161,7 +173,6 @@ export default function TimelinePage() {
                     {language === "EN" ? item.month.EN : item.month.FR} {item.year}
                   </p>
 
-                {/* Dot on the timeline line */}
                 <div className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[var(--foreground)] border-4 border-[var(--background)] z-10" />
 
                 <div
@@ -172,7 +183,6 @@ export default function TimelinePage() {
                   }`}
                 ></div>
 
-                {/* Cards */}
                 {hasMounted && (
                 <div
                   className={`absolute ${
@@ -204,48 +214,28 @@ export default function TimelinePage() {
           </div>
         </div>
 
-        {/* MOBILE */}
+        {/* Mobile */}
         <div className="md:hidden relative px-6 py-10">
           <div className="absolute left-5 top-0 bottom-0 w-px bg-[var(--muted)]" />
-
           <div className="flex flex-col gap-12 pl-10">
             {sortedTimelineData.map((item) => (
-              <div
-                key={`${item.year}-${item.month}-${item.title.EN}`}
-                className="relative"
-              >
+              <div key={`${item.year}-${item.month}-${item.title.EN}`} className="relative">
                 <span className="absolute -translate-x-13 top-2 w-4 h-4 rounded-full bg-[var(--foreground)] border-4 border-[var(--background)]" />
-
-                <div className={`bg-[var(--background)] text-[var(--foreground)] rounded-lg p-6
-                  ${hasMounted && darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}
-                >
+                <div className={`bg-[var(--background)] text-[var(--foreground)] rounded-lg p-6 ${hasMounted && darkMode ? "shadow-[0_2px_10px_rgba(255,255,255,0.5)]" : "shadow-2xl"}`}>
                   {item.image && (
                     <div className="mb-4 overflow-hidden rounded-md">
-                      <Image
-                        src={item.image}
-                        alt={item.imageAlt || item.title.EN}
-                        width={640}
-                        height={360}
-                        className="w-full h-auto object-cover"
-                        priority
-                      />
+                      <Image src={item.image} alt={item.imageAlt || item.title.EN} width={640} height={360} className="w-full h-auto object-cover" priority />
                     </div>
                   )}
-
-                  <h3 className="text-xl font-bold">
-                    {language === "EN" ? item.title.EN : item.title.FR}
-                  </h3>
-                  <p className="mt-2">
-                    {language === "EN" ? item.description.EN : item.description.FR}
-                  </p>
-                  <p className="mt-3 text-sm italic opacity-80">
-                    {language === "EN" ? item.month.EN : item.month.FR} {item.year}
-                  </p>
+                  <h3 className="text-xl font-bold">{language === "EN" ? item.title.EN : item.title.FR}</h3>
+                  <p className="mt-2">{language === "EN" ? item.description.EN : item.description.FR}</p>
+                  <p className="mt-3 text-sm italic opacity-80">{language === "EN" ? item.month.EN : item.month.FR} {item.year}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
         <div className="w-[75%] max-w-[800px] h-0.25 bg-[var(--foreground)] mx-auto my-1" />
       </section>
     </main>
